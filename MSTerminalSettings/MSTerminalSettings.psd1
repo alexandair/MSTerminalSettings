@@ -16,7 +16,7 @@ RootModule = 'MSTerminalSettings.psm1'
 ModuleVersion = '1.0.0'
 
 # Supported PSEditions
-# CompatiblePSEditions = @()
+CompatiblePSEditions = 'Core'
 
 # ID used to uniquely identify this module
 GUID = '7fa966d3-5be1-4491-be9e-ee0a5059e7c6'

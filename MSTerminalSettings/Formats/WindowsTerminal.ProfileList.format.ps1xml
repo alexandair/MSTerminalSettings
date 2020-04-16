@@ -20,11 +20,6 @@ format type data generated 04/16/2020 02:16:24 by TINYGOD\JGrote
             <Alignment>left</Alignment>
           </TableColumnHeader>
           <TableColumnHeader>
-            <Label>Commandline</Label>
-            <Width>3</Width>
-            <Alignment>left</Alignment>
-          </TableColumnHeader>
-          <TableColumnHeader>
             <Label>Source</Label>
             <Width>3</Width>
             <Alignment>left</Alignment>
@@ -36,6 +31,11 @@ format type data generated 04/16/2020 02:16:24 by TINYGOD\JGrote
           </TableColumnHeader>
           <TableColumnHeader>
             <Label>Guid</Label>
+            <Width>3</Width>
+            <Alignment>left</Alignment>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>Commandline</Label>
             <Width>3</Width>
             <Alignment>left</Alignment>
           </TableColumnHeader>
@@ -51,9 +51,6 @@ format type data generated 04/16/2020 02:16:24 by TINYGOD\JGrote
                 <PropertyName>Name</PropertyName>
               </TableColumnItem>
               <TableColumnItem>
-                <PropertyName>Commandline</PropertyName>
-              </TableColumnItem>
-              <TableColumnItem>
                 <PropertyName>Source</PropertyName>
               </TableColumnItem>
               <TableColumnItem>
@@ -61,6 +58,9 @@ format type data generated 04/16/2020 02:16:24 by TINYGOD\JGrote
               </TableColumnItem>
               <TableColumnItem>
                 <PropertyName>Guid</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>Commandline</PropertyName>
               </TableColumnItem>
             </TableColumnItems>
           </TableRowEntry>
