@@ -8,7 +8,7 @@ function New-MSTerminalProfile {
     }
 
     process {
-        $newprofile = [ProfileList]$PSCmdlet.MyInvocation.BoundParameters
+        $newprofile = [ProfileList]$PSBoundParameters
         if (-not $newprofile.Guid) {$newprofile.Guid = [Guid]::newGuid()}
         $TerminalSettings.Profiles.list.add($NewProfile) > $null
         Save-MSTerminalSetting $TerminalSettings

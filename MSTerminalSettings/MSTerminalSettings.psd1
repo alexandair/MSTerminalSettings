@@ -64,7 +64,10 @@ Description = 'Manage MS Terminal settings'
 # TypesToProcess = @()
 
 # Format files (.ps1xml) to be loaded when importing this module
-# FormatsToProcess = @()
+FormatsToProcess = @(
+    'Formats/WindowsTerminal.ProfileList.format.ps1xml'
+    'Formats/WindowsTerminal.TerminalSettings.format.ps1xml'
+)
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 # NestedModules = @()

@@ -1,11 +1,11 @@
 using namespace WindowsTerminal
-function Set-MSTerminalProfile {
+function Set-MSTerminalProfileDefault {
     [CmdletBinding()]
     param (
-        [Parameter(ValueFromPipeline)][ValidateNotNullOrEmpty()][ProfileList]$Profile
+        [Parameter(ValueFromPipeline)][ValidateNotNullOrEmpty()][Profile]$Profile = (Get-MSTerminalProfile -Default)
     )
     DynamicParam {
-        Get-ObjectDynamicParameters 'WindowsTerminal.ProfileList'
+        Get-ObjectDynamicParameters 'WindowsTerminal.Profile'
     }
     process {
         $settings = $PSBoundParameters.psobject.Copy()

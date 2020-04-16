@@ -1087,6 +1087,7 @@ namespace WindowsTerminal
         {
             MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
             DateParseHandling = DateParseHandling.None,
+            Formatting = Formatting.Indented,
             Converters =
             {
                 CommandConverter.Singleton,

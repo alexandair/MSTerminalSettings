@@ -15,9 +15,17 @@ function Get-ObjectDynamicParameters {
         } else {
             $attributes.Add([ParameterAttribute]@{})
         }
+
+        #Convert Booleans to switches
+        if ([String]$PropertyItem.PropertyType -match 'bool') {
+            $PropertyType = [switch]
+        } else {
+            $PropertyType = $PropertyItem.PropertyType
+        }
+
         $Param = [runtimedefinedparameter]::new(
             $PropertyItem.Name,         #string name
-            $PropertyItem.PropertyType, #type ParameterType
+            $PropertyType,              #type ParameterType
             $attributes                 #System.Collections.ObjectModel.Collection[System.Attribute] attributes
         )
         $dynamicParams[$Param.Name] = $Param
