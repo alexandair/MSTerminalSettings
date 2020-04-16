@@ -6,7 +6,7 @@ function Invoke-MSTerminalGif {
 .DESCRIPTION
     This command plays animated GIFs on the Windows Terminal. It performs the operation in a background runspace and only allows one playback at a time. It also remembers your previous windows terminal settings and puts them back after it is done
 .EXAMPLE
-    PS C:\> Invoke-TerminalGif https://media.giphy.com/media/g9582DNuQppxC/giphy.gif
+    PS C:\> Invoke-MSTerminalGif https://media.giphy.com/media/g9582DNuQppxC/giphy.gif
     Triggers a gif in the current Windows Terminal
 #>
     [CmdletBinding()]
@@ -71,7 +71,7 @@ function Invoke-MSTerminalGif {
             Write-Output "Playing $uri in $($terminalProfile.Name) for $($args.maxduration) seconds"
             $erroractionpreference = 'stop'
             try {
-                Set-MSTerminalProfile -InputObject $terminalProfile -BackgroundImage $uri -UseAcrylic:$args.acrylic -BackgroundImageOpacity $args.backgroundimageopacity -BackgroundImageStretchMode $args.StretchMode
+                Set-MSTerminalProfile -Profile $terminalProfile -BackgroundImage $uri -UseAcrylic:$args.acrylic -BackgroundImageOpacity $args.backgroundimageopacity -BackgroundImageStretchMode $args.StretchMode
                 Start-Sleep $args.maxduration
             } catch { Write-Error $PSItem } finally {
                 #Reset to a blank if for some reason the gif was the background previously.
@@ -85,7 +85,7 @@ function Invoke-MSTerminalGif {
                 } else {
                     'none'
                 }
-                Set-MSTerminalProfile -InputObject $terminalProfile -BackgroundImage $TerminalProfile.BackgroundImage -BackgroundImageStretchMode $backGroundImageStretchMode -UseAcrylic:$TerminalProfile.UseAcrylic -BackgroundImageOpacity $TerminalProfile.BackgroundImageOpacity
+                Set-MSTerminalProfile -Profile $terminalProfile -BackgroundImage $TerminalProfile.BackgroundImage -BackgroundImageStretchMode $backGroundImageStretchMode -UseAcrylic:$TerminalProfile.UseAcrylic -BackgroundImageOpacity $TerminalProfile.BackgroundImageOpacity
             }
         }
     } else {
