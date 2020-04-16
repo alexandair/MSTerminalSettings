@@ -1,4 +1,6 @@
 function Get-MSTerminalColorScheme {
+        #FIXME: Remove When Refactored
+        throwuser $QuickTypeNotImplementedException
     param(
         $Name
     )

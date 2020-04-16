@@ -25,6 +25,8 @@ function ConvertFrom-Iterm2ColorScheme {
         [Switch]$AsHashtable
     )
     begin {
+            #FIXME: Remove When Refactored
+    throwuser $QuickTypeNotImplementedException
         function HandleDict {
             param(
                 $Dict

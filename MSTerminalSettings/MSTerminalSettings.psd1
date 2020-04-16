@@ -70,25 +70,7 @@ Description = 'Manage MS Terminal settings'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @(
-    'Add-MSTerminalWordDelimiter',
-    'ConvertFrom-Iterm2ColorScheme',
-    'Find-MSTerminalFolder',
-    'Get-MSTerminalColorScheme',
-    'Get-MSTerminalProfile',
-    'Get-MSTerminalSetting',
-    'Import-Iterm2ColorScheme',
-    'New-MSTerminalColorScheme',
-    'New-MSTerminalColorTable',
-    'New-MSTerminalProfile',
-    'Remove-MSTerminalColorScheme',
-    'Remove-MSTerminalProfile',
-    'Remove-MSTerminalWordDelimiter',
-    'Set-MSTerminalProfile',
-    'Set-MSTerminalSetting',
-    'Set-MSTerminalTargetInstallation',
-    'Invoke-MSTerminalGif'
-)
+FunctionsToExport = '*'
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 # CmdletsToExport = '*'

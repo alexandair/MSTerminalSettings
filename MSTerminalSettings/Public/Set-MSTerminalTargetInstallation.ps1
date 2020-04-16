@@ -9,6 +9,8 @@ function Set-MSTerminalTargetInstallation {
         [Parameter(Mandatory=$true,ParameterSetName="Custom")]
         $Path
     )
+            #FIXME: Remove When Refactored
+            throwuser $QuickTypeNotImplementedException
     $Paths = ResolveWellKnownPaths
     if($PSCmdlet.ParameterSetName -eq "Builtin") {
         Switch ($Type) {

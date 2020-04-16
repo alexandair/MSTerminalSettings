@@ -29,6 +29,8 @@ function Set-MSTerminalSetting {
 
         [hashtable]$ExtraSettings = @{}
     )
+            #FIXME: Remove When Refactored
+            throwuser $QuickTypeNotImplementedException
     $Path = Find-MSTerminalFolder
     $SettingsPath = Join-Path $Path "profiles.json"
     # Don't use -AsHashtable for 5.1 support

@@ -51,4 +51,6 @@ function New-MSTerminalColorTable {
         $BrightCyan,
         $brightWhite
     )
+            #FIXME: Remove When Refactored
+            throwuser $QuickTypeNotImplementedException
 }

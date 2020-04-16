@@ -5,6 +5,8 @@ function Remove-MSTerminalColorScheme {
         [string[]]$Name
     )
     begin {
+                #FIXME: Remove When Refactored
+                throwuser $QuickTypeNotImplementedException
         $Path = Find-MSTerminalFolder
         $SettingsPath = Join-Path $Path "profiles.json"
         $Settings = ReadMSTerminalProfileJson $SettingsPath

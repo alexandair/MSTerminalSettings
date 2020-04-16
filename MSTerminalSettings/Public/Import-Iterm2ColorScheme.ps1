@@ -25,6 +25,8 @@ function Import-Iterm2ColorScheme {
         $Name
     )
     process {
+                #FIXME: Remove When Refactored
+                throwuser $QuickTypeNotImplementedException
         if ($PSCmdlet.ParameterSetName -eq 'Path') {
             $ResolvedPaths = Resolve-Path -Path $Path
         } elseif ($PSCmdlet.ParameterSetName -eq 'LiteralPath') {
