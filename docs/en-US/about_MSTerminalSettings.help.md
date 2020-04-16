@@ -1,5 +1,5 @@
-# MSTerminalSettings
-## about_MSTerminalSettings
+# MSTerminalConfig
+## about_MSTerminalConfig
 
 # SHORT DESCRIPTION
 Manage MS Terminal settings, profiles, and color schemes with PowerShell.
@@ -8,7 +8,7 @@ Manage MS Terminal settings, profiles, and color schemes with PowerShell.
 Manage MS Terminal settings, profiles, and color schemes with PowerShell.
 
 # EXAMPLES
-Import-Module MSTerminalSettings
+Import-Module MSTerminalConfig
 New-MSTerminalProfile -Name pwsh -CommandLine "C:\Program Files\PowerShell\6\pwsh.exe -WorkingDirectory ~" -Background "#012456" -ColorScheme Campbell
 
 Import-Iterm2ColorScheme -Path .\ItermProfile.itermcolors -Name ItermProfile

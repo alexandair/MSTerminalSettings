@@ -5,7 +5,7 @@ $SuppressImportModule = $false
 Describe "DetectCurrentTerminalProfile" {
     $GLOBAL:pesterPSScriptRoot = $PSSCriptROot
 
-    InModuleScope MSTerminalSettings {
+    InModuleScope MSTerminalConfig {
         $env:WT_SESSION = 'pester'
 
         Mock Get-MSTerminalProfile {

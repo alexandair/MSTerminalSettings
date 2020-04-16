@@ -1,11 +1,11 @@
 ---
-external help file: MSTerminalSettings-help.xml
-Module Name: MSTerminalSettings
+external help file: MSTerminalConfig-help.xml
+Module Name: MSTerminalConfig
 online version:
 schema: 2.0.0
 ---
 
-# Set-MSTerminalSetting
+# Set-MSTerminalConfig
 
 ## SYNOPSIS
 Updates the top-level settings for MS Terminal.
@@ -13,7 +13,7 @@ Updates the top-level settings for MS Terminal.
 ## SYNTAX
 
 ```
-Set-MSTerminalSetting [[-DefaultProfile] <String>] [[-InitialRows] <Int32>] [[-InitialCols] <Int32>]
+Set-MSTerminalConfig [[-DefaultProfile] <String>] [[-InitialRows] <Int32>] [[-InitialCols] <Int32>]
  [-AlwaysShowTabs] [[-RequestedTheme] <String>] [-ShowTerminalTitleInTitlebar] [-ShowTabsInTitlebar]
  [[-WordDelimiters] <String>] [-CopyOnSelect] [[-DisabledProfileSources] <String[]>] [[-Clear] <String[]>]
  [[-ExtraSettings] <Hashtable>] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -26,7 +26,7 @@ Updates the top-level settings for MS Terminal.
 
 ### Example 1
 ```powershell
-PS C:\> Set-MSTerminalSetting -Initialrows 50 -AlwaysShowTabs
+PS C:\> Set-MSTerminalConfig -Initialrows 50 -AlwaysShowTabs
 ```
 
 Sets the inital rows to 50 and enables always showing tabs.

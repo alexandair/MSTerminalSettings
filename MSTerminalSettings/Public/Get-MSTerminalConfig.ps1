@@ -1,4 +1,4 @@
-function Get-MSTerminalSetting {
+function Get-MSTerminalConfig {
     [CmdletBinding()]
     param (
         #Path to the profile.json settings file you want to work with. Defaults to the default location

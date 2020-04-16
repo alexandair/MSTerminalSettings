@@ -1,8 +1,8 @@
 using namespace WindowsTerminal
-function Set-MSTerminalSetting {
+function Set-MSTerminalConfig {
     [CmdletBinding()]
     param (
-        [Parameter(ValueFromPipeline)][ValidateNotNull()][TerminalSettings]$TerminalSettings = (Get-MSTerminalSetting)
+        [Parameter(ValueFromPipeline)][ValidateNotNull()][TerminalSettings]$TerminalSettings = (Get-MSTerminalConfig)
     )
     DynamicParam {
         Get-ObjectDynamicParameters 'WindowsTerminal.TerminalSettings'
@@ -14,12 +14,12 @@ function Set-MSTerminalSetting {
         }
         foreach ($settingItem in $settings.keys) {
             $TerminalSettings.$SettingItem = $settings[$SettingItem]
-            Save-MSTerminalSetting $TerminalSettings
+            Save-MSTerminalConfig $TerminalSettings
         }
     }
 }
 
-# function Set-MSTerminalSetting {
+# function Set-MSTerminalConfig {
 #     [CmdletBinding(SupportsShouldProcess=$true)]
 #     param(
 #         [string]$DefaultProfile,

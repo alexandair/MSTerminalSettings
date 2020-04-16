@@ -3,7 +3,7 @@ $SuppressImportModule = $false
 . $PSScriptRoot\Shared.ps1
 
 Describe "New-MSTerminalColorScheme" {
-    Mock Find-MSTerminalFolder -ModuleName MSTerminalSettings -MockWith {
+    Mock Find-MSTerminalFolder -ModuleName MSTerminalConfig -MockWith {
         $TestDrive
     }
     BeforeEach {

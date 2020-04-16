@@ -1,7 +1,7 @@
 using namespace WindowsTerminal
 function New-MSTerminalProfile {
     param(
-        [Parameter(ValueFromPipeline)][ValidateNotNull()][TerminalSettings]$TerminalSettings = (Get-MSTerminalSetting)
+        [Parameter(ValueFromPipeline)][ValidateNotNull()][TerminalSettings]$TerminalSettings = (Get-MSTerminalConfig)
     )
     DynamicParam {
         Get-ObjectDynamicParameters 'WindowsTerminal.ProfileList' -MandatoryParameters 'Name'
@@ -11,7 +11,7 @@ function New-MSTerminalProfile {
         $newprofile = [ProfileList]$PSBoundParameters
         if (-not $newprofile.Guid) {$newprofile.Guid = [Guid]::newGuid()}
         $TerminalSettings.Profiles.list.add($NewProfile) > $null
-        Save-MSTerminalSetting $TerminalSettings
+        Save-MSTerminalConfig $TerminalSettings
     }
 
     # param(

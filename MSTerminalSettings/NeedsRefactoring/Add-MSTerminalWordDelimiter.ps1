@@ -8,7 +8,7 @@ function Add-MSTerminalWordDelimiter {
     #FIXME: Remove When Refactored
     throwuser $QuickTypeNotImplementedException
 
-    $Settings = Get-MSTerminalSetting
+    $Settings = Get-MSTerminalConfig
     $Changed = $false
     $Delimiter.ToCharArray() | ForEach-Object {
         if($Settings.wordDelimiters -and !$Settings.wordDelimiters.Contains($_) -and $PSCmdlet.ShouldProcess("Add delimiters $Delimiter")) {
@@ -17,6 +17,6 @@ function Add-MSTerminalWordDelimiter {
         }
     }
     if($Changed) {
-        Set-MSTerminalSetting -WordDelimiters $Settings.WordDelimiters
+        Set-MSTerminalConfig -WordDelimiters $Settings.WordDelimiters
     }
 }

@@ -3,7 +3,7 @@ $SuppressImportModule = $false
 . $PSScriptRoot\Shared.ps1
 
 Describe "Get-MSTerminalProfile" {
-    Mock Find-MSTerminalFolder -ModuleName MSTerminalSettings -MockWith {
+    Mock Find-MSTerminalFolder -ModuleName MSTerminalConfig -MockWith {
         $TestDrive
     }
 

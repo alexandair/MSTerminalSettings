@@ -14,7 +14,7 @@ function Set-MSTerminalProfileDefault {
         }
         foreach ($settingItem in $settings.keys) {
             $Profile.$SettingItem = $settings[$SettingItem]
-            Save-MSTerminalSetting $Profile.TerminalSettings
+            Save-MSTerminalConfig $Profile.TerminalSettings
         }
     }
 }

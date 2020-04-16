@@ -4,10 +4,10 @@ This module updates the profiles.json file for the new [Microsoft Terminal](http
 
 # Installation
 
-The module is available from the [PowerShell Gallery](https://www.powershellgallery.com/packages/MSTerminalSettings) and can be installed using PowerShellGet
+The module is available from the [PowerShell Gallery](https://www.powershellgallery.com/packages/MSTerminalConfig) and can be installed using PowerShellGet
 
 ```
-Install-Module -Name MSTerminalSettings
+Install-Module -Name MSTerminalConfig
 ```
 
 I've been developing the module on PowerShell 6 but have been trying to ensure it will also run on Windows PowerShell 5.1.

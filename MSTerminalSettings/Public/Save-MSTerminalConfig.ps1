@@ -1,5 +1,5 @@
 using namespace WindowsTerminal
-function Save-MSTerminalSetting {
+function Save-MSTerminalConfig {
     [CmdletBinding()]
     param (
         [Parameter(ValueFromPipeline)][TerminalSettings]$TerminalSetting,
@@ -7,12 +7,12 @@ function Save-MSTerminalSetting {
         [Switch]$PassThru
     )
 
-    if (-not $Path) {throw 'You specified a generated MSTerminalSetting object, and therefore must specify an output path with -Path to use this command'}
+    if (-not $Path) {throw 'You specified a generated MSTerminalConfig object, and therefore must specify an output path with -Path to use this command'}
     if ($PSCmdlet.ShouldProcess($TerminalSetting.Path,'Saving Terminal Settings to File')) {
         [Serialize]::ToJson($TerminalSetting) | Out-File $Path
     }
 
-    #> $MSTerminalSetting.Path
+    #> $MSTerminalConfig.Path
 
     #TODO: Parse the error and find where the errors are
 }

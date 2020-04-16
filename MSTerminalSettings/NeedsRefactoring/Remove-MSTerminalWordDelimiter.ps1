@@ -6,7 +6,7 @@ function Remove-MSTerminalWordDelimiter {
     )
             #FIXME: Remove When Refactored
             throwuser $QuickTypeNotImplementedException
-    $Settings = Get-MSTerminalSetting
+    $Settings = Get-MSTerminalConfig
     $Changed = $false
     $Delimiter.ToCharArray() | ForEach-Object {
         if($Settings.WordDelimiters -and $Settings.wordDelimiters.Contains($_) -and $PSCmdlet.ShouldProcess("Remove delimiter $_")) {
@@ -15,6 +15,6 @@ function Remove-MSTerminalWordDelimiter {
         }
     }
     if($Changed) {
-        Set-MSTerminalSetting -WordDelimiters $Settings.wordDelimiters
+        Set-MSTerminalConfig -WordDelimiters $Settings.wordDelimiters
     }
 }

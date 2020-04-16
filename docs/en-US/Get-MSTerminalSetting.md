@@ -1,11 +1,11 @@
 ---
-external help file: MSTerminalSettings-help.xml
-Module Name: MSTerminalSettings
+external help file: MSTerminalConfig-help.xml
+Module Name: MSTerminalConfig
 online version:
 schema: 2.0.0
 ---
 
-# Get-MSTerminalSetting
+# Get-MSTerminalConfig
 
 ## SYNOPSIS
 Returns the current top-level settings for MS Terminal.
@@ -13,7 +13,7 @@ Returns the current top-level settings for MS Terminal.
 ## SYNTAX
 
 ```
-Get-MSTerminalSetting [-Force] [<CommonParameters>]
+Get-MSTerminalConfig [-Force] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -23,7 +23,7 @@ Returns the current top-level settings for MS Terminal.
 
 ### Example 1
 ```powershell
-PS C:\> Get-MSTerminalSetting
+PS C:\> Get-MSTerminalConfig
 
 defaultProfile                  : {38782937-4ba3-4696-9ae1-0bfc33c60e62}
 initialRows                     : 30

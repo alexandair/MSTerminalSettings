@@ -3,7 +3,7 @@ $SuppressImportModule = $false
 . $PSScriptRoot\Shared.ps1
 
 Describe "Set-MSTerminalProfile" {
-    Mock Find-MSTerminalFolder -ModuleName MSTerminalSettings -MockWith {
+    Mock Find-MSTerminalFolder -ModuleName MSTerminalConfig -MockWith {
         $TestDrive
     }
     BeforeEach {
@@ -73,9 +73,9 @@ Describe "Set-MSTerminalProfile" {
     }
 
     It "Updates the default profile guid" {
-        $Before = Get-MSTerminalSetting
+        $Before = Get-MSTerminalConfig
         Set-MSTerminalProfile -Name pester -MakeDefault
-        $After = Get-MSTerminalSetting
+        $After = Get-MSTerminalConfig
         $After.defaultProfile | Should -Not -Be $Before.defaultProfile
     }
 

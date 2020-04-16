@@ -3,7 +3,7 @@ $SuppressImportModule = $false
 . $PSScriptRoot\Shared.ps1
 
 Describe "Add-MSTerminalWordDelimiter" {
-    Mock Find-MSTerminalFolder -ModuleName MSTerminalSettings -MockWith {
+    Mock Find-MSTerminalFolder -ModuleName MSTerminalConfig -MockWith {
         $TestDrive
     }
 
@@ -13,15 +13,15 @@ Describe "Add-MSTerminalWordDelimiter" {
         }
 
         It "Adds a single delimiter" {
-            $ExpectedDelimiters = (Get-MSTerminalSetting).WordDelimiters + "x"
+            $ExpectedDelimiters = (Get-MSTerminalConfig).WordDelimiters + "x"
             Add-MSTerminalWordDelimiter -Delimiter "x"
-            (Get-MSTerminalSetting).WordDelimiters | Should -Be $ExpectedDelimiters
+            (Get-MSTerminalConfig).WordDelimiters | Should -Be $ExpectedDelimiters
         }
 
         It "Adds multiple delimiters" {
-            $ExpectedDelimiters = (Get-MSTerminalSetting).WordDelimiters + "abc"
+            $ExpectedDelimiters = (Get-MSTerminalConfig).WordDelimiters + "abc"
             Add-MSTerminalWordDelimiter -Delimiter "abc"
-            (Get-MSTerminalSetting).WordDelimiters | Should -Be $ExpectedDelimiters
+            (Get-MSTerminalConfig).WordDelimiters | Should -Be $ExpectedDelimiters
         }
     }
 }

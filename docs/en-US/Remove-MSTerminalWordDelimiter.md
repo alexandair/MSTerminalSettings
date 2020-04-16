@@ -1,6 +1,6 @@
 ---
-external help file: MSTerminalSettings-help.xml
-Module Name: MSTerminalSettings
+external help file: MSTerminalConfig-help.xml
+Module Name: MSTerminalConfig
 online version:
 schema: 2.0.0
 ---

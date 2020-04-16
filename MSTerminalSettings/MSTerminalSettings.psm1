@@ -27,6 +27,11 @@ foreach ($ScriptPathItem in 'Private','Public','ArgumentCompleters') {
     }
 }
 Export-ModuleMember -Function $PublicFunctions
+foreach ($verb in 'Get','Set','New') {
+    New-Alias -Name "$verb-MSTerminalSetting" -Value "$verb-MSTerminalConfig"
+    Export-ModuleMember -Alias "$verb-MSTerminalSetting"
+}
+
 
 #Add a not implemented exception for work in progress
 
