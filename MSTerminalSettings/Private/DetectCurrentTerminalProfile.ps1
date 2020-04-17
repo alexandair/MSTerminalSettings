@@ -8,8 +8,8 @@ function DetectCurrentTerminalProfile {
     if (-not $env:WT_SESSION) { throw "This only works in Windows Terminal currently. Please try running this command again inside a Windows Terminal powershell session." }
 
     #Detection Method 1: Profile Environment Variable
-    if ($env:WT_PROFILE) {
-        $profileName = $env:WT_PROFILE
+    if ($env:WT_PROFILE_ID) {
+        $profileName = $env:WT_PROFILE_ID
         write-verbose "Detected WT_PROFILE is set to $profileName, fetching if profile exists"
         if ($profileName -as [Guid]) {
             return Get-MSTerminalProfile -Guid $profileName -ErrorAction Stop
