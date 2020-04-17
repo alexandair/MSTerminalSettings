@@ -4,7 +4,7 @@ function New-MSTerminalProfile {
         [Parameter(ValueFromPipeline)][ValidateNotNull()][TerminalSettings]$TerminalSettings = (Get-MSTerminalConfig)
     )
     DynamicParam {
-        Get-ObjectDynamicParameters 'WindowsTerminal.ProfileList' -MandatoryParameters 'Name'
+        Get_ObjectDynamicParameters 'WindowsTerminal.ProfileList' -MandatoryParameters 'Name'
     }
 
     process {

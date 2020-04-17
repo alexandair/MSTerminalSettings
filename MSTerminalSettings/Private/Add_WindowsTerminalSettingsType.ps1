@@ -1,5 +1,5 @@
 #This function dynamically generates types and is used for strong type definition
-function Add-WindowsTerminalSettingsType {
+function Add_WindowsTerminalSettingsType {
     $ReferencedAssemblies = @(
         ([newtonsoft.json.jsonpropertyattribute].assembly)
         'System.Collections, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'

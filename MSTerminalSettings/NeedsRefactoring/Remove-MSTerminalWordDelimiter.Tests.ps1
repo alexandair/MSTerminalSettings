@@ -3,7 +3,7 @@ $SuppressImportModule = $false
 . $PSScriptRoot\Shared.ps1
 
 Describe "Remove-MSTerminalWordDelimiter" {
-    Mock Find-MSTerminalFolder -ModuleName MSTerminalConfig -MockWith {
+    Mock Find-MSTerminalFolder -ModuleName MSTerminalSettings -MockWith {
         $TestDrive
     }
 

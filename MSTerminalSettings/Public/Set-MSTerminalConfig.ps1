@@ -5,7 +5,7 @@ function Set-MSTerminalConfig {
         [Parameter(ValueFromPipeline)][ValidateNotNull()][TerminalSettings]$TerminalSettings = (Get-MSTerminalConfig)
     )
     DynamicParam {
-        Get-ObjectDynamicParameters 'WindowsTerminal.TerminalSettings'
+        Get_ObjectDynamicParameters 'WindowsTerminal.TerminalSettings'
     }
     process {
         $settings = $PSBoundParameters.psobject.Copy()

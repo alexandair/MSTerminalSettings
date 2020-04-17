@@ -7,7 +7,7 @@ function Get-MSTerminalProfile {
         [Switch]$Default
     )
     dynamicParam {
-        Get-ObjectDynamicParameters 'WindowsTerminal.ProfileList'
+        Get_ObjectDynamicParameters 'WindowsTerminal.ProfileList'
     }
     process {
         $filters = $PSBoundParameters.psobject.Copy()

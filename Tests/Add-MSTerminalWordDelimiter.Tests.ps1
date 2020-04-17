@@ -1,15 +1,13 @@
-[System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '', Scope='*', Target='SuppressImportModule')]
-$SuppressImportModule = $false
 . $PSScriptRoot\Shared.ps1
 
 Describe "Add-MSTerminalWordDelimiter" {
-    Mock Find-MSTerminalFolder -ModuleName MSTerminalConfig -MockWith {
+    Mock Find-MSTerminalFolder -ModuleName MSTerminalSettings -MockWith {
         $TestDrive
     }
 
     context "Default values" {
         BeforeEach {
-            Copy-Item $PSScriptRoot/Profiles/OneProfile.json $TestDrive/profiles.json
+            Copy-Item $Mocks/DefaultSettings.json $TestDrive/profiles.json
         }
 
         It "Adds a single delimiter" {

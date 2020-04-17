@@ -5,7 +5,7 @@ function Set-MSTerminalProfileDefault {
         [Parameter(ValueFromPipeline)][ValidateNotNullOrEmpty()][Profile]$Profile = (Get-MSTerminalProfile -Default)
     )
     DynamicParam {
-        Get-ObjectDynamicParameters 'WindowsTerminal.Profile'
+        Get_ObjectDynamicParameters 'WindowsTerminal.Profile'
     }
     process {
         $settings = $PSBoundParameters.psobject.Copy()

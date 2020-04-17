@@ -13,8 +13,8 @@ try {
 } catch [Management.Automation.RuntimeException] {
 
 	if ([String]$psitem -match 'Unable to find type') {
-		. $PSSCRIPTROOT/Private/Add-WindowsTerminalSettingsType.ps1
-		Add-WindowsTerminalSettingsType
+		. $PSSCRIPTROOT/Private/Add_WindowsTerminalSettingsType.ps1
+		Add_WindowsTerminalSettingsType
 	} else {throw $PSItem}
 }
 

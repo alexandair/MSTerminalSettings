@@ -1,6 +1,6 @@
 using namespace System.Management.Automation
 using namespace System.Collections.ObjectModel
-function Get-ObjectDynamicParameters {
+function Get_ObjectDynamicParameters {
     param(
         #The type to retrieve the dynamic parameters
         [Type]$Type,

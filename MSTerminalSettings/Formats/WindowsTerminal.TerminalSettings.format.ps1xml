@@ -25,7 +25,7 @@ format type data generated 04/16/2020 02:22:28 by TINYGOD\JGrote
             <Alignment>right</Alignment>
           </TableColumnHeader>
           <TableColumnHeader>
-            <Label>ColorSchemes</Label>
+            <Label>Schemes</Label>
             <Width>64</Width>
             <Alignment>right</Alignment>
           </TableColumnHeader>
@@ -46,10 +46,10 @@ format type data generated 04/16/2020 02:22:28 by TINYGOD\JGrote
                 <ScriptBlock>[int]$_.profiles.count</ScriptBlock>
               </TableColumnItem>
               <TableColumnItem>
-                <PropertyName>[int]$_.schemes.count</PropertyName>
+                <ScriptBlock>[int]$_.keybindings.count</ScriptBlock>
               </TableColumnItem>
               <TableColumnItem>
-                <PropertyName>[int]$_.keybindings.count</PropertyName>
+                <ScriptBlock>[int]$_.schemes.count</ScriptBlock>
               </TableColumnItem>
               <TableColumnItem>
                 <PropertyName>Path</PropertyName>

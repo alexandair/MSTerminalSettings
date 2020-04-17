@@ -4,21 +4,20 @@ This command will use a variety of probing methods to determine what the current
 .NOTES
 THis is an imperfect process, a better method would be to correlate the WT_SESSION to the profile, if an API ever exists for this.
 #>
-function DetectCurrentTerminalProfile {
+function Detect_CurrentTerminalProfile {
     if (-not $env:WT_SESSION) { throw "This only works in Windows Terminal currently. Please try running this command again inside a Windows Terminal powershell session." }
-
     #Detection Method 1: Profile Environment Variable
     if ($env:WT_PROFILE_ID) {
         $profileName = $env:WT_PROFILE_ID
-        write-verbose "Detected WT_PROFILE is set to $profileName, fetching if profile exists"
+        write-debug "Terminal Detection: Detected WT_PROFILE is set to $profileName, fetching if profile exists"
         if ($profileName -as [Guid]) {
-            return Get-MSTerminalProfile -Guid $profileName -ErrorAction Stop
+            return Get-MSTerminalProfile -Guid $profileName
         } else {
-            return Get-MSTerminalProfile -Name $profileName -ErrorAction Stop
+            return Get-MSTerminalProfile -Name $profileName
         }
     }
 
-    #Detection Method 2: Check the powershell executable type and if only one profile that doesn't have WT_PROFILE already defined matches, return that.
+    #Detection Method 2: Check the powershell executable type and if only one profile that doesn't have WT_PROFILE_ID already defined matches, return that.
     $psExe = Get-Process -PID $pid
     $psExePath = $psExe.Path
     $psExeName = $psExe.ProcessName
@@ -33,7 +32,7 @@ function DetectCurrentTerminalProfile {
     }
 
     #The PSCustomObject array cast is to enable count to work properly in PS5.1 (it returns nothing on a non-array). Unnecessary in PS6+
-    [PSCustomObject[]]$candidateProfiles = $candidateProfiles | Where-Object commandline -notmatch 'WT_PROFILE'
+    [PSCustomObject[]]$candidateProfiles = $candidateProfiles | Where-Object commandline -notmatch 'WT_PROFILE_ID'
 
     #If there were no matches, bail out gracefully
     if (-not $candidateprofiles) {
