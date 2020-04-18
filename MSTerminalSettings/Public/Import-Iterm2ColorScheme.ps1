@@ -39,7 +39,7 @@ function Import-Iterm2ColorScheme {
             if(!$PSBoundParameters.ContainsKey("Name")) {
                 $Name = $FileInfo.BaseName
             }
-            New-MSTerminalColorScheme -Name $Name @Colors
+            Add-MSTerminalColorScheme -Name $Name @Colors
         }
     }
 }

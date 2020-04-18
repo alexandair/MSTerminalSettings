@@ -1,5 +1,3 @@
-[System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '', Scope='*', Target='SuppressImportModule')]
-$SuppressImportModule = $false
 . $PSScriptRoot\Shared.ps1
 
 Describe "Remove-MSTerminalWordDelimiter" {
@@ -9,7 +7,7 @@ Describe "Remove-MSTerminalWordDelimiter" {
 
     context "Default values" {
         BeforeEach {
-            Copy-Item $PSScriptRoot/Profiles/OneProfile.json $TestDrive/profiles.json
+            Copy-Item $Mocks/CustomSettings.json $TestDrive/profiles.json
         }
 
         It "Removes a single delimiter" {

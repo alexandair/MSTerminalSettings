@@ -9,6 +9,7 @@
         ]
       }
     ],
+    "wordDelimiters": " ./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}~?│",
     "tabWidthMode": "titleLength",
     "profiles": {
       "defaults": {

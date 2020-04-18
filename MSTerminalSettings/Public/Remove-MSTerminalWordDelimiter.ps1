@@ -4,8 +4,6 @@ function Remove-MSTerminalWordDelimiter {
     param(
         $Delimiter
     )
-            #FIXME: Remove When Refactored
-            throwuser $QuickTypeNotImplementedException
     $Settings = Get-MSTerminalConfig
     $Changed = $false
     $Delimiter.ToCharArray() | ForEach-Object {
@@ -14,7 +12,7 @@ function Remove-MSTerminalWordDelimiter {
             $Changed = $true
         }
     }
-    if($Changed) {
+    if ($Changed) {
         Set-MSTerminalConfig -WordDelimiters $Settings.wordDelimiters
     }
 }
