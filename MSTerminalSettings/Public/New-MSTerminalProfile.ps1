@@ -112,7 +112,7 @@ function New-MSTerminalProfile {
     # }
     # $GuidString = "{$Guid}"
 
-    # $Profile = @{
+    # $WTProfile= @{
     #     name = $Name
     #     guid = $GuidString
     #     commandline = $CommandLine
@@ -143,7 +143,7 @@ function New-MSTerminalProfile {
     #     "tabTitle",
     #     "useAcrylic"
     # )
-    # CopyHashtable -Source $PSBoundParameters -Destination $Profile -Keys $Properties
+    # CopyHashtable -Source $PSBoundParameters -Destination $WTProfile-Keys $Properties
 
     # if($Padding.Count -gt 0) {
     #     $Profile["padding"] = $padding -Join ", "

@@ -2,19 +2,19 @@ using namespace WindowsTerminal
 function Set-MSTerminalConfig {
     [CmdletBinding()]
     param (
-        [Parameter(ValueFromPipeline)][ValidateNotNull()][TerminalSettings]$TerminalSettings = (Get-MSTerminalConfig)
+        [Parameter(ValueFromPipeline)][ValidateNotNull()][TerminalSettings]$TerminalConfig = (Get-MSTerminalConfig)
     )
     DynamicParam {
         Get_ObjectDynamicParameters 'WindowsTerminal.TerminalSettings'
     }
     process {
         $settings = $PSBoundParameters.psobject.Copy()
-        'TerminalSettings' | foreach {
-            if ($PSItem -in $settings.keys) {$settings.Remove($PSItem)}
-        }
         foreach ($settingItem in $settings.keys) {
-            $TerminalSettings.$SettingItem = $settings[$SettingItem]
-            Save-MSTerminalConfig $TerminalSettings
+            #Skip any custom parameters we may have added in the param block
+            if ($settingItem -notin [TerminalSettings].DeclaredProperties.Name) { continue }
+
+            $TerminalConfig.$SettingItem = $settings[$SettingItem]
+            Save-MSTerminalConfig $TerminalConfig
         }
     }
 }

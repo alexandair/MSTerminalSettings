@@ -7,74 +7,68 @@ Describe "Set-MSTerminalProfile" {
         $TestDrive
     }
     BeforeEach {
-        Copy-Item $PSScriptRoot/Profiles/OneProfile.json $TestDrive/profiles.json
+        Copy-Item $Mocks/DefaultUserSettings.json $TestDrive/profiles.json
     }
+
+    $testProfileName = 'Windows Powershell'
+
     Context "Profile by pipeline" {
         It "Updates commandLine" {
-            $P = Get-MSTerminalProfile
             $ExpectedValue = [Guid]::NewGuid().Guid
-            $P | Set-MSTerminalProfile -CommandLine $ExpectedValue
-            (Get-MSTerminalProfile).CommandLine | Should -Be $ExpectedValue
+            Get-MSTerminalProfile -Name $testProfileName |
+                Set-MSTerminalProfile -CommandLine $ExpectedValue
+            (Get-MSTerminalProfile -Name $testProfileName).CommandLine | Should -Be $ExpectedValue
         }
     }
 
-    Context "Arbitrary Setting" {
-        It "Adds an arbitrary setting correctly" {
-            $P = Get-MSTerminalProfile
-            $ExpectedValue = [Guid]::NewGuid().Guid
-            $P | Set-MSTerminalProfile -ExtraSettings @{MyAdditionalArbitrarySetting=$ExpectedValue}
-            (Get-MSTerminalProfile).MyAdditionalArbitrarySetting | Should -Be $ExpectedValue
-        }
-    }
+    #Not relevant in new strongly typed scenario
+    #TODO: Remove test once approved
+    # Context "Wrong Case" {
+    #     BeforeEach {
+    #         Copy-Item $PSScriptRoot/Profiles/WrongCase.json $TestDrive/profiles.json
+    #     }
+    #     #Clear was deprecated/removed because you can just set something to $null and it won't passthrough the null setting
+    #     # It "Clear works with wrong case" {
+    #     #     Get-MSTerminalProfile -Name 'Windows Powershell'
+    #     #     $P | Set-MSTerminalProfile -Clear colorscheme
+    #     #     (Get-MSTerminalProfile).colorScheme | Should -Be $Null
+    #     # }
 
-    Context "Wrong Case" {
-        BeforeEach {
-            Copy-Item $PSScriptRoot/Profiles/WrongCase.json $TestDrive/profiles.json
-        }
-        It "Clear works with wrong case" {
-            $P = Get-MSTerminalProfile
-            $P | Set-MSTerminalProfile -Clear colorscheme
-            (Get-MSTerminalProfile).colorScheme | Should -Be $Null
-        }
-
-        It "Empty string parameter works with wrong case" {
-            $P = Get-MSTerminalProfile
-            $P | Set-MSTerminalProfile -ColorScheme ""
-            (Get-MSTerminalProfile).colorScheme | Should -Be $Null
-        }
-    }
+    #     # It "Empty string parameter works with wrong case" {
+    #     #     $P = Get-MSTerminalProfile
+    #     #     $P | Set-MSTerminalProfile -ColorScheme ""
+    #     #     (Get-MSTerminalProfile).colorScheme | Should -Be $Null
+    #     # }
+    # }
 
     Context "Update Settings" {
         $ExpectedValues = @{
             "backgroundImageAlignment" = "bottomRight"
-            "hidden" = $true
             "source" = "Windows.Terminal.Wsl"
         }
         $ExpectedValues.Keys | ForEach-Object {
             $SettingName = $_
             $ExpectedValue = $ExpectedValues[$_]
             It "Updates $SettingName" {
-                $P = Get-MSTerminalProfile
-                $Settings = @{
-                    $SettingName = $ExpectedValue
-                }
-                $P | Set-MSTerminalProfile @Settings
+                $profileToTest = Get-MSTerminalProfile -Name $testProfileName
+                Invoke-Expression "Set-MSTerminalProfile -InputObject `$profileToTest -$SettingName $ExpectedValue"
+                (Get-MSTerminalProfile -Name $testProfileName)."$Settingname" | Should -Be $ExpectedValue
             }
-            (Get-MSTerminalProfile)."$Settingname" | Should -Be $ExpectedValue
         }
 
         It "Can change a profile's guid" {
-            $Before = Get-MSTerminalProfile -Name pester
+            $Before = Get-MSTerminalProfile -Name $testProfileName
             $NewGuid = "{$([Guid]::NewGuid().Guid)}"
-            $Before | Set-MSTerminalProfile -NewGuid $NewGuid
-            $After = Get-MSTerminalProfile -Name pester
+            $Before | Set-MSTerminalProfile -Guid $NewGuid
+            $After = Get-MSTerminalProfile -Name $testProfileName
             $After.Guid | Should -Be $NewGuid
         }
     }
 
     It "Updates the default profile guid" {
+        Set-MSTerminalConfig -DefaultProfile 'aaa'
         $Before = Get-MSTerminalConfig
-        Set-MSTerminalProfile -Name pester -MakeDefault
+        Set-MSTerminalProfile -InputObject (Get-MSTerminalProfile -Name $testProfileName) -MakeDefault
         $After = Get-MSTerminalConfig
         $After.defaultProfile | Should -Not -Be $Before.defaultProfile
     }

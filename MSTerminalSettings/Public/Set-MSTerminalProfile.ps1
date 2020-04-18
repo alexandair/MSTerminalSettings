@@ -2,19 +2,28 @@ using namespace WindowsTerminal
 function Set-MSTerminalProfile {
     [CmdletBinding()]
     param (
-        [Parameter(ValueFromPipeline)][ValidateNotNullOrEmpty()][ProfileList]$Profile
+        [Parameter(ValueFromPipeline)][ProfileList]$InputObject,
+        #Set the profile as the default profile used for new tabs and on startup
+        [Switch]$MakeDefault
     )
     DynamicParam {
         Get_ObjectDynamicParameters 'WindowsTerminal.ProfileList'
     }
     process {
+        #If no profile was specified, operate on the "defaults" profile, meaning
+        if (-not $InputObject) { $InputObject = Get-MSTerminalProfile -Default }
+
         $settings = $PSBoundParameters.psobject.Copy()
-        'Profile' | foreach {
-            if ($PSItem -in $settings.keys) {$settings.Remove($PSItem)}
-        }
         foreach ($settingItem in $settings.keys) {
-            $Profile.$SettingItem = $settings[$SettingItem]
-            Save-MSTerminalConfig $Profile.TerminalSettings
+            #Skip any custom parameters we may have added in the param block
+            if ($settingItem -notin [ProfileList].DeclaredProperties.Name) { continue }
+
+            $InputObject.$settingItem = $settings[$settingItem]
+            Save-MSTerminalConfig $InputObject.TerminalConfig
+        }
+        if ($MakeDefault) {
+            Get-MSTerminalConfig |
+                Set-MSTerminalConfig -DefaultProfile $InputObject.GUID
         }
     }
 }

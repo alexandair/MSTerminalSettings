@@ -1,5 +1,5 @@
 function Remove-MSTerminalProfile {
-
+    throw [System.NotImplementedException]
 }
 
 # function Remove-MSTerminalProfile {
@@ -17,7 +17,7 @@ function Remove-MSTerminalProfile {
 #         $Path = Find-MSTerminalFolder
 #         $SettingsPath = Join-Path $Path "profiles.json"
 #         $Settings = ReadMSTerminalProfileJson $SettingsPath
-#         $ProfilesToRemove = @()
+#         $WTProfileToRemove = @()
 #     }
 #     process {
 #         if($PSCmdlet.ParametersetName -eq "Name") {
@@ -28,14 +28,14 @@ function Remove-MSTerminalProfile {
 #             $TerminalProfile = $_
 #             $Settings.profiles | ForEach-Object {
 #                 if($_.guid -eq $TerminalProfile.guid) {
-#                     $ProfilesToRemove += $_
+#                     $WTProfileToRemove += $_
 #                 }
 #             }
 #         }
 #     }
 #     end {
-#         if($ProfilesToRemove.Count -gt 0 -and $PSCmdlet.ShouldProcess($ProfilesToRemove.Name, "Remove MS Terminal profiles")) {
-#             $RemoveGuids = @($ProfilesToRemove.Guid)
+#         if($WTProfileToRemove.Count -gt 0 -and $PSCmdlet.ShouldProcess($WTProfileToRemove.Name, "Remove MS Terminal profiles")) {
+#             $RemoveGuids = @($WTProfileToRemove.Guid)
 #             $RemainingProfiles = @($Settings.Profiles | Where-Object {
 #                 $_.Guid -notin $RemoveGuids
 #             })

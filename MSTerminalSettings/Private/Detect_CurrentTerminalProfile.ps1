@@ -21,14 +21,14 @@ function Detect_CurrentTerminalProfile {
     $psExe = Get-Process -PID $pid
     $psExePath = $psExe.Path
     $psExeName = $psExe.ProcessName
-    $profiles = Get-MSTerminalProfile
+    $WTProfile = Get-MSTerminalProfile
 
     if ($psExeName -eq 'pwsh') {
-        $candidateProfiles = $profiles.where{
+        $candidateProfiles = $WTProfile.where{
             $PSItem.source -eq 'Windows.Terminal.PowershellCore' -or $PSItem.commandline -match [regex]::Escape($psExeName)
         }
     } else {
-        $candidateProfiles = $profiles.where{$PSItem.commandline -match [regex]::Escape($psExeName)}
+        $candidateProfiles = $WTProfile.where{$PSItem.commandline -match [regex]::Escape($psExeName)}
     }
 
     #The PSCustomObject array cast is to enable count to work properly in PS5.1 (it returns nothing on a non-array). Unnecessary in PS6+
