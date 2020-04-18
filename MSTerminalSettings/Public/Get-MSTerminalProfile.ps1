@@ -25,7 +25,7 @@ function Get-MSTerminalProfile {
         } else {
             $filters = $PSBoundParameters.psobject.Copy()
             $filters.keys.foreach{
-                if ($PSItem -notin [ProfileList].DeclaredProperties.Name) { $filters.remove($PSItem) }
+                if ($PSItem -notin [ProfileList].DeclaredProperties.Name) { [void]$filters.remove($PSItem) }
             }
             $WTProfile = $TerminalConfig.Profiles.List
             foreach ($filterItem in $filters.keys) {

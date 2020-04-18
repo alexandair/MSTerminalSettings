@@ -21,12 +21,9 @@ function ConvertFrom-Iterm2ColorScheme {
         [ValidateNotNullOrEmpty()]
         [Alias('PSPath')]
         [string[]]$LiteralPath,
-
         [Switch]$AsHashtable
     )
     begin {
-            #FIXME: Remove When Refactored
-    throwuser $QuickTypeNotImplementedException
         function HandleDict {
             param(
                 $Dict

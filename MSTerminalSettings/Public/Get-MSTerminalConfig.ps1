@@ -5,6 +5,7 @@ function Get-MSTerminalConfig {
         [String]$Path = (Join-Path (Find-MSTerminalFolder) 'profiles.json')
     )
     try {
+
         [String]$jsonContent = if ($Path -match '^http') {
             Invoke-WebRequest -UseBasicParsing -ContentType 'application/json' -Uri $Path
         } else {
