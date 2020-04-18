@@ -4,7 +4,7 @@ This command will use a variety of probing methods to determine what the current
 .NOTES
 THis is an imperfect process, a better method would be to correlate the WT_SESSION to the profile, if an API ever exists for this.
 #>
-function Detect_CurrentTerminalProfile {
+function Find-CurrentTerminalProfile {
     if (-not $env:WT_SESSION) { throw "This only works in Windows Terminal currently. Please try running this command again inside a Windows Terminal powershell session." }
     #Detection Method 1: Profile Environment Variable
     if ($env:WT_PROFILE_ID) {

@@ -1,8 +1,8 @@
 using namespace WindowsTerminal
 function Save-MSTerminalConfig {
-    [CmdletBinding(DefaultParameterSetName='InputObject')]
+    [CmdletBinding(SupportsShouldProcess)]
     param (
-        [Parameter(Position=0,ParameterSetName='InputObject',Mandatory,ValueFromPipeline)][TerminalSettings]$TerminalConfig,
+        [Parameter(Position=0,Mandatory,ValueFromPipeline)][TerminalSettings]$TerminalConfig,
         [ValidateNotNullOrEmpty()][IO.FileInfo]$Path,
         [Switch]$PassThru
     )

@@ -7,7 +7,7 @@ function Set-MSTerminalProfile {
         [Switch]$MakeDefault
     )
     DynamicParam {
-        Get_ObjectDynamicParameters 'WindowsTerminal.ProfileList'
+        Get-ObjectDynamicParameters 'WindowsTerminal.ProfileList'
     }
     process {
         #If no profile was specified, operate on the "defaults" profile, meaning

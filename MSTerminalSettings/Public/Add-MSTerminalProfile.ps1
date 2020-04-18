@@ -1,17 +1,28 @@
 using namespace WindowsTerminal
-function New-MSTerminalProfile {
+function Add-MSTerminalProfile {
     param(
-        [Parameter(ValueFromPipeline)][ValidateNotNull()][TerminalSettings]$TerminalSettings = (Get-MSTerminalConfig)
+        [Parameter(ValueFromPipeline)][ValidateNotNull()][TerminalSettings]$TerminalSettings = (Get-MSTerminalConfig),
+        [Switch]$MakeDefault
     )
     DynamicParam {
-        Get_ObjectDynamicParameters 'WindowsTerminal.ProfileList' -MandatoryParameters 'Name'
+        Get-ObjectDynamicParameters 'WindowsTerminal.ProfileList' -MandatoryParameters 'Name'
     }
-
     process {
-        $newprofile = [ProfileList]$PSBoundParameters
+        $settings = $PSBoundParameters.psobject.Copy()
+        foreach ($settingItem in $settings.keys) {
+            #Skip any custom parameters we may have added in the param block
+            if ($settingItem -notin [ProfileList].DeclaredProperties.Name) { $settings.remove($settingItem) }
+        }
+
+        $newprofile = [ProfileList]$settings
         if (-not $newprofile.Guid) {$newprofile.Guid = [Guid]::newGuid()}
         $TerminalSettings.Profiles.list.add($NewProfile) > $null
         Save-MSTerminalConfig $TerminalSettings
+
+        if ($MakeDefault) {
+            Get-MSTerminalConfig |
+                Set-MSTerminalConfig -DefaultProfile $InputObject.GUID
+        }
     }
 
     # param(

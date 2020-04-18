@@ -49,7 +49,7 @@ function Invoke-MSTerminalGif {
     } else {
         Get-MSTerminalProfile -Name $Name -ErrorAction stop
     }
-    if (-not $Name) {$TerminalProfile = Detect_CurrentTerminalProfile}
+    if (-not $Name) {$TerminalProfile = Find-CurrentTerminalProfile}
 
     #Prepare arguments for the threadjob
     $TerminalGifJobParams = @{ }

@@ -9,7 +9,7 @@ function Get-MSTerminalProfile {
         [Parameter(ParameterSetName='Default')][Switch]$Default
     )
     dynamicParam {
-        $dynamicParams = Get_ObjectDynamicParameters 'WindowsTerminal.ProfileList'
+        $dynamicParams = Get-ObjectDynamicParameters 'WindowsTerminal.ProfileList'
         $dynamicparams.keys.foreach{
             $dynamicparams.$PSItem.attributes[0].ParameterSetName = 'Filter'
         }
