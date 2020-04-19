@@ -8,7 +8,7 @@ schema: 2.0.0
 # Set-MSTerminalConfig
 
 ## SYNOPSIS
-Updates the top-level settings for MS Terminal.
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
@@ -23,21 +23,21 @@ Set-MSTerminalConfig [[-TerminalConfig] <TerminalSettings>] [-Profiles <Profiles
 ```
 
 ## DESCRIPTION
-Updates the top-level settings for MS Terminal.
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> Set-MSTerminalConfig -Initialrows 50 -AlwaysShowTabs
+PS C:\> {{ Add example code here }}
 ```
 
-Sets the inital rows to 50 and enables always showing tabs.
+{{ Add example description here }}
 
 ## PARAMETERS
 
 ### -AlwaysShowTabs
-Show tabs even when there is only a single console application running.
+{{ Fill AlwaysShowTabs Description }}
 
 ```yaml
 Type: SwitchParameter
@@ -67,9 +67,7 @@ Accept wildcard characters: False
 ```
 
 ### -CopyOnSelect
-When set, a selection is immediately copied to your clipboard upon creation. When set to false (-CopyOnSelect:$False), the selection persists and awaits further action.
-
-If not specified or cleared, the terminal default value is $False.
+{{ Fill CopyOnSelect Description }}
 
 ```yaml
 Type: SwitchParameter
@@ -84,7 +82,7 @@ Accept wildcard characters: False
 ```
 
 ### -DefaultProfile
-The GUID of the profile to launch when MS Terminal is opened.  Use Get-MSTerminalProfile | Set-MSTerminalProfile -MakeDefault to set the default without using the GUID.
+{{ Fill DefaultProfile Description }}
 
 ```yaml
 Type: String
@@ -99,7 +97,7 @@ Accept wildcard characters: False
 ```
 
 ### -InitialCols
-The number of columns to launch with.
+{{ Fill InitialCols Description }}
 
 ```yaml
 Type: Int64
@@ -129,7 +127,7 @@ Accept wildcard characters: False
 ```
 
 ### -InitialRows
-The number of rows to launch with.
+{{ Fill InitialRows Description }}
 
 ```yaml
 Type: Int64
@@ -190,7 +188,7 @@ Accept wildcard characters: False
 ```
 
 ### -RequestedTheme
-Sets the theme of the tab bar. Possible values: "light", "dark", "system"
+{{ Fill RequestedTheme Description }}
 
 ```yaml
 Type: RequestedTheme
@@ -236,7 +234,7 @@ Accept wildcard characters: False
 ```
 
 ### -ShowTabsInTitlebar
-When set to 'true', the tabs are moved into the titlebar and the titlebar disappears. When set to 'false', the titlebar sits above the tabs.
+{{ Fill ShowTabsInTitlebar Description }}
 
 ```yaml
 Type: SwitchParameter
@@ -251,7 +249,7 @@ Accept wildcard characters: False
 ```
 
 ### -ShowTerminalTitleInTitlebar
-Show the current console application's title in the MS Terminal title bar.
+{{ Fill ShowTerminalTitleInTitlebar Description }}
 
 ```yaml
 Type: SwitchParameter
@@ -312,9 +310,7 @@ Accept wildcard characters: False
 ```
 
 ### -WordDelimiters
-Determines the delimiters used in a double click selection.
-
-Default terminal value: /\()"'-:,.;<>~!@#$%^&*|+=[]{}~?│
+{{ Fill WordDelimiters Description }}
 
 ```yaml
 Type: String
@@ -333,12 +329,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+### WindowsTerminal.TerminalSettings
 
 ## OUTPUTS
 
-### None
-
+### System.Object
 ## NOTES
 
 ## RELATED LINKS

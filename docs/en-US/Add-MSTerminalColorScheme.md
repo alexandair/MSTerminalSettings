@@ -5,86 +5,37 @@ online version:
 schema: 2.0.0
 ---
 
-# Set-MSTerminalConfig
+# Add-MSTerminalColorScheme
 
 ## SYNOPSIS
-Updates the top-level settings for MS Terminal.
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-Set-MSTerminalConfig [[-TerminalConfig] <TerminalSettings>] [-Profiles <ProfilesObject>]
- [-Schemes <System.Collections.Generic.List`1[WindowsTerminal.SchemeList]>] [-DefaultProfile <String>]
- [-AlwaysShowTabs] [-ConfirmCloseAllTabs] [-CopyOnSelect] [-InitialCols <Int64>] [-InitialPosition <String>]
- [-InitialRows <Int64>] [-Keybindings <System.Collections.Generic.List`1[WindowsTerminal.Keybinding]>]
- [-LaunchMode <LaunchMode>] [-RequestedTheme <RequestedTheme>] [-RowsToScroll <RowsToScroll>]
- [-ShowTabsInTitlebar] [-ShowTerminalTitleInTitlebar] [-SnapToGridOnResize] [-TabWidthMode <TabWidthMode>]
- [-WordDelimiters <String>] [<CommonParameters>]
+Add-MSTerminalColorScheme [[-TerminalSettings] <TerminalSettings>] [-Background <String>] [-Black <String>]
+ [-Blue <String>] [-BrightBlack <String>] [-BrightBlue <String>] [-BrightCyan <String>] [-BrightGreen <String>]
+ [-BrightPurple <String>] [-BrightRed <String>] [-BrightWhite <String>] [-BrightYellow <String>]
+ [-Cyan <String>] [-Foreground <String>] [-Green <String>] [-Name <String>] [-Purple <String>] [-Red <String>]
+ [-SelectionBackground <String>] [-White <String>] [-Yellow <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Updates the top-level settings for MS Terminal.
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> Set-MSTerminalConfig -Initialrows 50 -AlwaysShowTabs
+PS C:\> {{ Add example code here }}
 ```
 
-Sets the inital rows to 50 and enables always showing tabs.
+{{ Add example description here }}
 
 ## PARAMETERS
 
-### -AlwaysShowTabs
-Show tabs even when there is only a single console application running.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ConfirmCloseAllTabs
-{{ Fill ConfirmCloseAllTabs Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -CopyOnSelect
-When set, a selection is immediately copied to your clipboard upon creation. When set to false (-CopyOnSelect:$False), the selection persists and awaits further action.
-
-If not specified or cleared, the terminal default value is $False.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -DefaultProfile
-The GUID of the profile to launch when MS Terminal is opened.  Use Get-MSTerminalProfile | Set-MSTerminalProfile -MakeDefault to set the default without using the GUID.
+### -Background
+{{ Fill Background Description }}
 
 ```yaml
 Type: String
@@ -98,23 +49,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InitialCols
-The number of columns to launch with.
-
-```yaml
-Type: Int64
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -InitialPosition
-{{ Fill InitialPosition Description }}
+### -Black
+{{ Fill Black Description }}
 
 ```yaml
 Type: String
@@ -128,11 +64,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InitialRows
-The number of rows to launch with.
+### -Blue
+{{ Fill Blue Description }}
 
 ```yaml
-Type: Int64
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -143,11 +79,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Keybindings
-{{ Fill Keybindings Description }}
+### -BrightBlack
+{{ Fill BrightBlack Description }}
 
 ```yaml
-Type: System.Collections.Generic.List`1[WindowsTerminal.Keybinding]
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -158,27 +94,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -LaunchMode
-{{ Fill LaunchMode Description }}
+### -BrightBlue
+{{ Fill BrightBlue Description }}
 
 ```yaml
-Type: LaunchMode
-Parameter Sets: (All)
-Aliases:
-Accepted values: Default, Maximized
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Profiles
-{{ Fill Profiles Description }}
-
-```yaml
-Type: ProfilesObject
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -189,27 +109,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -RequestedTheme
-Sets the theme of the tab bar. Possible values: "light", "dark", "system"
+### -BrightCyan
+{{ Fill BrightCyan Description }}
 
 ```yaml
-Type: RequestedTheme
-Parameter Sets: (All)
-Aliases:
-Accepted values: Dark, Light, System
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -RowsToScroll
-{{ Fill RowsToScroll Description }}
-
-```yaml
-Type: RowsToScroll
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -220,11 +124,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Schemes
-{{ Fill Schemes Description }}
+### -BrightGreen
+{{ Fill BrightGreen Description }}
 
 ```yaml
-Type: System.Collections.Generic.List`1[WindowsTerminal.SchemeList]
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -235,11 +139,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ShowTabsInTitlebar
-When set to 'true', the tabs are moved into the titlebar and the titlebar disappears. When set to 'false', the titlebar sits above the tabs.
+### -BrightPurple
+{{ Fill BrightPurple Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -250,11 +154,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ShowTerminalTitleInTitlebar
-Show the current console application's title in the MS Terminal title bar.
+### -BrightRed
+{{ Fill BrightRed Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -265,11 +169,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SnapToGridOnResize
-{{ Fill SnapToGridOnResize Description }}
+### -BrightWhite
+{{ Fill BrightWhite Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -280,14 +184,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TabWidthMode
-{{ Fill TabWidthMode Description }}
+### -BrightYellow
+{{ Fill BrightYellow Description }}
 
 ```yaml
-Type: TabWidthMode
+Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: Equal, TitleLength
 
 Required: False
 Position: Named
@@ -296,8 +199,113 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TerminalConfig
-{{ Fill TerminalConfig Description }}
+### -Cyan
+{{ Fill Cyan Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Foreground
+{{ Fill Foreground Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Green
+{{ Fill Green Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Name
+{{ Fill Name Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Purple
+{{ Fill Purple Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Red
+{{ Fill Red Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SelectionBackground
+{{ Fill SelectionBackground Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TerminalSettings
+{{ Fill TerminalSettings Description }}
 
 ```yaml
 Type: TerminalSettings
@@ -311,10 +319,23 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
-### -WordDelimiters
-Determines the delimiters used in a double click selection.
+### -White
+{{ Fill White Description }}
 
-Default terminal value: /\()"'-:,.;<>~!@#$%^&*|+=[]{}~?│
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Yellow
+{{ Fill Yellow Description }}
 
 ```yaml
 Type: String
@@ -333,12 +354,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+### WindowsTerminal.TerminalSettings
 
 ## OUTPUTS
 
-### None
-
+### System.Object
 ## NOTES
 
 ## RELATED LINKS

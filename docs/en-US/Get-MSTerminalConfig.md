@@ -5,31 +5,45 @@ online version:
 schema: 2.0.0
 ---
 
-# Find-MSTerminalFolder
+# Get-MSTerminalConfig
 
 ## SYNOPSIS
-Locates the profiles.json file for MS Terminal
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-Find-MSTerminalFolder [<CommonParameters>]
+Get-MSTerminalConfig [[-Path] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Locates the profiles.json file for MS Terminal.
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> Find-MSTerminalFolder
-C:\Users\AUser\AppData\Local\packages\WindowsTerminalDev_8wekyb3d8bbwe
+PS C:\> {{ Add example code here }}
 ```
 
-Searches for the WindowsTermminalDev or Microsoft.WindowsTerminal folder in the current user's packages path.
+{{ Add example description here }}
 
 ## PARAMETERS
+
+### -Path
+{{ Fill Path Description }}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### CommonParameters
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
@@ -40,8 +54,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.String
-
+### System.Object
 ## NOTES
 
 ## RELATED LINKS

@@ -1,6 +1,6 @@
 ---
-external help file: MSTerminalConfig-help.xml
-Module Name: MSTerminalConfig
+external help file: MSTerminalSettings-help.xml
+Module Name: MSTerminalSettings
 online version:
 schema: 2.0.0
 ---
@@ -12,28 +12,18 @@ Updates a profile setting.
 
 ## SYNTAX
 
-### Name (Default)
 ```
-Set-MSTerminalProfile -Name <String> [-CommandLine <String>] [-MakeDefault] [-HistorySize <Int32>]
- [-SnapOnInput] [-ColorScheme <String>] [-ColorTable <String[]>] [-CursorColor <String>]
- [-CursorShape <String>] [-CursorHeight <Int32>] [-FontFace <String>] [-StartingDirectory <String>]
- [-FontSize <Int32>] [-Background <String>] [-Foreground <String>] [-AcrylicOpacity <Single>] [-UseAcrylic]
- [-BackgroundImage <String>] [-BackgroundImageAlignment <String>] [-BackgroundImageOpacity <Double>]
- [-BackgroundImageStretchMode <String>] [-Hidden] [-ScrollbarState <String>] [-Source <String>]
- [-NewGuid <Guid>] [-TabTitle <String>] [-CloseOnExit] [-Icon <String>] [-Padding <Int32[]>]
- [-Clear <String[]>] [-ExtraSettings <Hashtable>] [-WhatIf] [-Confirm] [<CommonParameters>]
-```
-
-### InputObject
-```
-Set-MSTerminalProfile -InputObject <Object> [-CommandLine <String>] [-MakeDefault] [-HistorySize <Int32>]
- [-SnapOnInput] [-ColorScheme <String>] [-ColorTable <String[]>] [-CursorColor <String>]
- [-CursorShape <String>] [-CursorHeight <Int32>] [-FontFace <String>] [-StartingDirectory <String>]
- [-FontSize <Int32>] [-Background <String>] [-Foreground <String>] [-AcrylicOpacity <Single>] [-UseAcrylic]
- [-BackgroundImage <String>] [-BackgroundImageAlignment <String>] [-BackgroundImageOpacity <Double>]
- [-BackgroundImageStretchMode <String>] [-Hidden] [-ScrollbarState <String>] [-Source <String>]
- [-NewGuid <Guid>] [-TabTitle <String>] [-CloseOnExit] [-Icon <String>] [-Padding <Int32[]>]
- [-Clear <String[]>] [-ExtraSettings <Hashtable>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-MSTerminalProfile [[-InputObject] <ProfileList>] [-MakeDefault] [-Guid <String>] [-Name <String>]
+ [-AcrylicOpacity <Double>] [-AntialiasingMode <AntialiasingMode>] [-Background <String>]
+ [-BackgroundImage <String>] [-BackgroundImageAlignment <BackgroundImageAlignment>]
+ [-BackgroundImageOpacity <Double>] [-BackgroundImageStretchMode <BackgroundImageStretchMode>]
+ [-CloseOnExit <CloseOnExitUnion>] [-ColorScheme <String>]
+ [-ColorTable <System.Collections.Generic.List`1[WindowsTerminal.ColorTable]>] [-Commandline <String>]
+ [-ConnectionType <String>] [-CursorColor <String>] [-CursorHeight <Int64>] [-CursorShape <CursorShape>]
+ [-ExperimentalRetroTerminalEffect] [-FontFace <String>] [-FontSize <Int64>] [-Foreground <String>] [-Hidden]
+ [-HistorySize <Int64>] [-Icon <String>] [-Padding <String>] [-ScrollbarState <ScrollbarState>]
+ [-SelectionBackground <String>] [-SnapOnInput] [-Source <String>] [-StartingDirectory <String>]
+ [-SuppressApplicationTitle] [-TabTitle <String>] [-UseAcrylic] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -54,9 +44,25 @@ Updates the "pwsh" profile to be the default and sets the font size to 14.
 Sets the acrylic opacity, 0 being completely transparent and 1 being completely opaque.  This should be a number between 0 and 1.
 
 ```yaml
-Type: Single
+Type: Double
 Parameter Sets: (All)
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AntialiasingMode
+{{ Fill AntialiasingMode Description }}
+
+```yaml
+Type: AntialiasingMode
+Parameter Sets: (All)
+Aliases:
+Accepted values: Aliased, Cleartype, Grayscale
 
 Required: False
 Position: Named
@@ -101,10 +107,10 @@ Accept wildcard characters: False
 Sets how the background image aligns to the boundaries of the window.
 
 ```yaml
-Type: String
+Type: BackgroundImageAlignment
 Parameter Sets: (All)
 Aliases:
-Accepted values: center, left, top, right, bottom, topLeft, topRight, bottomLeft, bottomRight
+Accepted values: Bottom, BottomLeft, BottomRight, Center, Left, Right, Top, TopLeft, TopRight
 
 Required: False
 Position: Named
@@ -137,25 +143,10 @@ Uniform - The background image is resized to fill the window, preserving the asp
 UniformToFill - The background image is resized to fill the window, clipping the image to make it fit the window and preserving the aspect ratio.
 
 ```yaml
-Type: String
+Type: BackgroundImageStretchMode
 Parameter Sets: (All)
 Aliases:
-Accepted values: none, fill, uniform, uniformToFill
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Clear
-A list of profile settings to remove from the profile.  This takes precedence over any other value being set by this cmdlet.
-
-```yaml
-Type: String[]
-Parameter Sets: (All)
-Aliases:
+Accepted values: Fill, None, Uniform, UniformToFill
 
 Required: False
 Position: Named
@@ -168,7 +159,7 @@ Accept wildcard characters: False
 Should MS Terminal close the tab when the program exits.
 
 ```yaml
-Type: SwitchParameter
+Type: CloseOnExitUnion
 Parameter Sets: (All)
 Aliases:
 
@@ -198,7 +189,7 @@ Accept wildcard characters: False
 Array of colors used in the profile if colorscheme is not set. Colors use hex color format: "#rrggbb". Ordering is as follows: [black, red, green, yellow, blue, magenta, cyan, white, bright black, bright red, bright green, bright yellow, bright blue, bright magenta, bright cyan, bright white]
 
 ```yaml
-Type: String[]
+Type: System.Collections.Generic.List`1[WindowsTerminal.ColorTable]
 Parameter Sets: (All)
 Aliases:
 
@@ -209,7 +200,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -CommandLine
+### -Commandline
 The command line to run for this profile.
 
 ```yaml
@@ -224,13 +215,13 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
+### -ConnectionType
+{{ Fill ConnectionType Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: (All)
-Aliases: cf
+Aliases:
 
 Required: False
 Position: Named
@@ -258,7 +249,7 @@ Accept wildcard characters: False
 Sets the height of the cursor. Only works when "cursorShape" is set to "vintage". Accepts values from 25-100.
 
 ```yaml
-Type: Int32
+Type: Int64
 Parameter Sets: (All)
 Aliases:
 
@@ -273,10 +264,10 @@ Accept wildcard characters: False
 The cursor shape.
 
 ```yaml
-Type: String
+Type: CursorShape
 Parameter Sets: (All)
 Aliases:
-Accepted values: bar, emptyBox, filledBox, underscore, vintage
+Accepted values: Bar, EmptyBox, FilledBox, Underscore, Vintage
 
 Required: False
 Position: Named
@@ -285,12 +276,11 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -ExtraSettings
-A hashtable of additional settings to set in the profile. These entries are not validated and override other parameter settings, use at your own risk!
-
+### -ExperimentalRetroTerminalEffect
+{{ Fill ExperimentalRetroTerminalEffect Description }}
 
 ```yaml
-Type: Hashtable
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
@@ -320,7 +310,7 @@ Accept wildcard characters: False
 The size of the font
 
 ```yaml
-Type: Int32
+Type: Int64
 Parameter Sets: (All)
 Aliases:
 
@@ -333,6 +323,21 @@ Accept wildcard characters: False
 
 ### -Foreground
 Sets the foreground color of the profile. Overrides foreground set in color scheme if colorscheme is set. Uses hex color format: "#rrggbb".
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Guid
+{{ Fill Guid Description }}
 
 ```yaml
 Type: String
@@ -365,7 +370,7 @@ Accept wildcard characters: False
 The number of lines of history to store.
 
 ```yaml
-Type: Int32
+Type: Int64
 Parameter Sets: (All)
 Aliases:
 
@@ -395,12 +400,12 @@ Accept wildcard characters: False
 A profile object from Get-MSTerminalProfile that will be updated.
 
 ```yaml
-Type: Object
-Parameter Sets: InputObject
+Type: ProfileList
+Parameter Sets: (All)
 Aliases:
 
-Required: True
-Position: Named
+Required: False
+Position: 0
 Default value: None
 Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
@@ -426,21 +431,6 @@ The name of the profile that will be updated.
 
 ```yaml
 Type: String
-Parameter Sets: Name
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -NewGuid
-A new GUID to use to identify this profile.
-
-```yaml
-Type: Guid
 Parameter Sets: (All)
 Aliases:
 
@@ -455,7 +445,7 @@ Accept wildcard characters: False
 The padding to use between the window edges and the text.
 
 ```yaml
-Type: Int32[]
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -470,10 +460,25 @@ Accept wildcard characters: False
 Defines the visibility of the scrollbar. Possible values: "visible", "hidden"
 
 ```yaml
+Type: ScrollbarState
+Parameter Sets: (All)
+Aliases:
+Accepted values: Hidden, Visible
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SelectionBackground
+{{ Fill SelectionBackground Description }}
+
+```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: visible, hidden
 
 Required: False
 Position: Named
@@ -504,7 +509,6 @@ The source for dynamically generated profiles.
 Type: String
 Parameter Sets: (All)
 Aliases:
-Accepted values: Windows.Terminal.Azure, Windows.Terminal.PowershellCore, Windows.Terminal.Wsl,
 
 Required: False
 Position: Named
@@ -518,6 +522,21 @@ The working directory to start in.
 
 ```yaml
 Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SuppressApplicationTitle
+{{ Fill SuppressApplicationTitle Description }}
+
+```yaml
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
@@ -550,22 +569,6 @@ Enable acrylic effects.
 Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -WhatIf
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: wi
 
 Required: False
 Position: Named

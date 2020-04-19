@@ -43,7 +43,7 @@ format type data generated 04/16/2020 02:22:28 by TINYGOD\JGrote
             <ScriptBlock>$_.foo /1mb -as [int]</ScriptBlock>
 -->
               <TableColumnItem>
-                <ScriptBlock>[int]$_.profiles.count</ScriptBlock>
+                <ScriptBlock>[int]$_.profiles.list.count</ScriptBlock>
               </TableColumnItem>
               <TableColumnItem>
                 <ScriptBlock>[int]$_.keybindings.count</ScriptBlock>

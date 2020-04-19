@@ -1,6 +1,6 @@
 ---
-external help file: MSTerminalConfig-help.xml
-Module Name: MSTerminalConfig
+external help file: MSTerminalSettings-help.xml
+Module Name: MSTerminalSettings
 online version:
 schema: 2.0.0
 ---
@@ -13,7 +13,8 @@ Removes a defined color scheme from profiles.json
 ## SYNTAX
 
 ```
-Remove-MSTerminalColorScheme [-Name] <String[]> [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-MSTerminalColorScheme [[-Name] <String>] [[-TerminalSettings] <TerminalSettings>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -56,14 +57,29 @@ Accept wildcard characters: False
 The name(s) of the color scheme(s) to remove.  This can also be piped from Get-MSTerminalColorScheme.
 
 ```yaml
-Type: String[]
+Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -TerminalSettings
+{{ Fill TerminalSettings Description }}
+
+```yaml
+Type: TerminalSettings
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 1
+Default value: None
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 

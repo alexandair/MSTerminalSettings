@@ -1,6 +1,6 @@
 ---
-external help file: MSTerminalConfig-help.xml
-Module Name: MSTerminalConfig
+external help file: MSTerminalSettings-help.xml
+Module Name: MSTerminalSettings
 online version:
 schema: 2.0.0
 ---
@@ -13,7 +13,7 @@ Returns the current top-level settings for MS Terminal.
 ## SYNTAX
 
 ```
-Get-MSTerminalConfig [-Force] [<CommonParameters>]
+Get-MSTerminalConfig [[-Path] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -39,20 +39,16 @@ Returns the current top-level settings for MS Terminal.
 
 ## PARAMETERS
 
-### -Force
-*** Deprecated as of Terminal 0.2.1715.0 and will be removed in a future release of the module ***
-
-Use to force output to include the fully deserialized profiles.json file.  If not specified, the 'profiles' and 'schemes' elements will be omitted.
-
-
+### -Path
+{{ Fill Path Description }}
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

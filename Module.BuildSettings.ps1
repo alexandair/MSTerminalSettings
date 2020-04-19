@@ -7,9 +7,9 @@
 # The root directories for the module's docs, src and test.
 [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
 $DocsRootDir = "$PSScriptRoot/docs"
-$SrcRootDir  = "$PSScriptRoot/src"
+$SrcRootDir  = "$PSScriptRoot/MSTerminalSettings"
 [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]
-$TestRootDir = "$PSScriptRoot/test"
+$TestRootDir = "$PSScriptRoot/Tests"
 
 # The name of your module should match the basename of the PSD1 file.
 [System.Diagnostics.CodeAnalysis.SuppressMessage('PSUseDeclaredVarsMoreThanAssigments', '')]

@@ -5,16 +5,15 @@ online version:
 schema: 2.0.0
 ---
 
-# Get-MSTerminalProfile
+# Add-MSTerminalProfile
 
 ## SYNOPSIS
-Returns the currently defined profiles from the profiles.json file.
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
-### Filter (Default)
 ```
-Get-MSTerminalProfile [-TerminalConfig <TerminalSettings>] [-Guid <String>] [-Name <String>]
+Add-MSTerminalProfile [[-TerminalSettings] <TerminalSettings>] [-MakeDefault] [-Guid <String>] [-Name <String>]
  [-AcrylicOpacity <Double>] [-AntialiasingMode <AntialiasingMode>] [-Background <String>]
  [-BackgroundImage <String>] [-BackgroundImageAlignment <BackgroundImageAlignment>]
  [-BackgroundImageOpacity <Double>] [-BackgroundImageStretchMode <BackgroundImageStretchMode>]
@@ -27,41 +26,17 @@ Get-MSTerminalProfile [-TerminalConfig <TerminalSettings>] [-Guid <String>] [-Na
  [-SuppressApplicationTitle] [-TabTitle <String>] [-UseAcrylic] [<CommonParameters>]
 ```
 
-### DefaultSettings
-```
-Get-MSTerminalProfile [-TerminalConfig <TerminalSettings>] [-DefaultSettings] [<CommonParameters>]
-```
-
-### Default
-```
-Get-MSTerminalProfile [-TerminalConfig <TerminalSettings>] [-Default] [<CommonParameters>]
-```
-
 ## DESCRIPTION
-Returns the currently defined profiles from the profiles.json file.
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> Get-MSTerminalProfile
+PS C:\> {{ Add example code here }}
 ```
 
-Returns all currently defined profiles.
-
-### Example 2
-```powershell
-PS C:\> Get-MSTerminalProfile -Name powershell
-```
-
-Returns any profiles with the name powershell.
-
-### Example 3
-```powershell
-PS C:\> Get-MSTerminalProfile -Name *power*
-```
-
-Returns any profiles that match *power*.
+{{ Add example description here }}
 
 ## PARAMETERS
 
@@ -70,7 +45,7 @@ Returns any profiles that match *power*.
 
 ```yaml
 Type: Double
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -85,7 +60,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: AntialiasingMode
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 Accepted values: Aliased, Cleartype, Grayscale
 
@@ -101,7 +76,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -116,7 +91,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -131,7 +106,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: BackgroundImageAlignment
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 Accepted values: Bottom, BottomLeft, BottomRight, Center, Left, Right, Top, TopLeft, TopRight
 
@@ -147,7 +122,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: Double
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -162,7 +137,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: BackgroundImageStretchMode
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 Accepted values: Fill, None, Uniform, UniformToFill
 
@@ -178,7 +153,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: CloseOnExitUnion
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -193,7 +168,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -208,7 +183,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: System.Collections.Generic.List`1[WindowsTerminal.ColorTable]
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -223,7 +198,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -238,7 +213,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -253,7 +228,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -268,7 +243,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: Int64
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -283,39 +258,9 @@ Accept wildcard characters: False
 
 ```yaml
 Type: CursorShape
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 Accepted values: Bar, EmptyBox, FilledBox, Underscore, Vintage
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Default
-{{ Fill Default Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: Default
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -DefaultSettings
-{{ Fill DefaultSettings Description }}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: DefaultSettings
-Aliases:
 
 Required: False
 Position: Named
@@ -329,7 +274,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -344,7 +289,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -359,7 +304,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: Int64
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -374,7 +319,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -385,11 +330,11 @@ Accept wildcard characters: False
 ```
 
 ### -Guid
-Get the profile with the specified GUID.
+{{ Fill Guid Description }}
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -404,7 +349,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -419,7 +364,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: Int64
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -434,7 +379,22 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -MakeDefault
+{{ Fill MakeDefault Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -445,11 +405,11 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-The name of a profile or a wildcard pattern
+{{ Fill Name Description }}
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -464,7 +424,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -479,7 +439,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: ScrollbarState
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 Accepted values: Hidden, Visible
 
@@ -495,7 +455,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -510,7 +470,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -525,7 +485,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -540,7 +500,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -555,7 +515,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -570,7 +530,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: String
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -580,8 +540,8 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TerminalConfig
-{{ Fill TerminalConfig Description }}
+### -TerminalSettings
+{{ Fill TerminalSettings Description }}
 
 ```yaml
 Type: TerminalSettings
@@ -589,7 +549,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 0
 Default value: None
 Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
@@ -600,7 +560,7 @@ Accept wildcard characters: False
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: Filter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -615,12 +575,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+### WindowsTerminal.TerminalSettings
 
 ## OUTPUTS
 
 ### System.Object
-
 ## NOTES
 
 ## RELATED LINKS

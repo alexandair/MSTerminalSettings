@@ -5,28 +5,29 @@ online version:
 schema: 2.0.0
 ---
 
-# Add-MSTerminalWordDelimiter
+# Save-MSTerminalConfig
 
 ## SYNOPSIS
-Adds word delimiters to the MS Terminal global settings.
+{{ Fill in the Synopsis }}
 
 ## SYNTAX
 
 ```
-Add-MSTerminalWordDelimiter [[-Delimiter] <Object>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Save-MSTerminalConfig [-TerminalConfig] <TerminalSettings> [-Path <FileInfo>] [-PassThru] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Adds word delimiters to the MS Terminal global settings.
+{{ Fill in the Description }}
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> Add-MSTerminalWordDelimiter -Delimiter "#"
+PS C:\> {{ Add example code here }}
 ```
 
-Adds the # as a word delimiter (if it is not already in the string).
+{{ Add example description here }}
 
 ## PARAMETERS
 
@@ -45,18 +46,48 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Delimiter
-A string with the delimiter or delimiters to add.
+### -PassThru
+{{ Fill PassThru Description }}
 
 ```yaml
-Type: Object
+Type: SwitchParameter
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 0
+Position: Named
 Default value: None
 Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Path
+{{ Fill Path Description }}
+
+```yaml
+Type: FileInfo
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TerminalConfig
+{{ Fill TerminalConfig Description }}
+
+```yaml
+Type: TerminalSettings
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
@@ -81,7 +112,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### None
+### WindowsTerminal.TerminalSettings
 
 ## OUTPUTS
 

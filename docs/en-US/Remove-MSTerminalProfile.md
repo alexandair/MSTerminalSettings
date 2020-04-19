@@ -1,6 +1,6 @@
 ---
-external help file: MSTerminalConfig-help.xml
-Module Name: MSTerminalConfig
+external help file: MSTerminalSettings-help.xml
+Module Name: MSTerminalSettings
 online version:
 schema: 2.0.0
 ---
@@ -12,14 +12,9 @@ Removes a MS Terminal profile
 
 ## SYNTAX
 
-### Name (Default)
 ```
-Remove-MSTerminalProfile -Name <String> [-WhatIf] [-Confirm] [<CommonParameters>]
-```
-
-### InputObject
-```
-Remove-MSTerminalProfile -InputObject <Object> [-WhatIf] [-Confirm] [<CommonParameters>]
+Remove-MSTerminalProfile [[-Guid] <Guid>] [[-TerminalSettings] <TerminalSettings>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -58,31 +53,31 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InputObject
-A MS Terminal profile object from Get-MSTerminalProfile
+### -Guid
+{{ Fill Guid Description }}
 
 ```yaml
-Type: Object
-Parameter Sets: InputObject
+Type: Guid
+Parameter Sets: (All)
 Aliases:
 
-Required: True
-Position: Named
+Required: False
+Position: 0
 Default value: None
-Accept pipeline input: True (ByValue)
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -Name
-The name of the profile(s) to remove.
+### -TerminalSettings
+{{ Fill TerminalSettings Description }}
 
 ```yaml
-Type: String
-Parameter Sets: Name
+Type: TerminalSettings
+Parameter Sets: (All)
 Aliases:
 
-Required: True
-Position: Named
+Required: False
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
